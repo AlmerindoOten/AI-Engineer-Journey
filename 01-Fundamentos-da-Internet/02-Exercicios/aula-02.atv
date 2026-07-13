@@ -1,0 +1,19 @@
+Aula 2 
+
+Responda com suas palavras:
+
+1-Por que dizemos que o navegador é um Cliente?
+2-Por que um Servidor não precisa ser um computador super potente?
+3-Um celular pode ser Cliente? Explique.
+4-Um servidor pode ser Cliente também? Explique.
+
+5-Imagine que você criou um agente para uma clínica.
+O paciente pergunta:
+“Qual o horário da minha consulta?”
+Explique o caminho dessa informação até a resposta chegar ao paciente.
+
+1 - Dizemos que o navegador é um cliente pq ele solicita algo ao servidor, por exemplo, que abra uma pagina.
+2 - A definição de servidor é: Um dispositivo que recebe, processa e responde ações. Ele não necessariamente precisa ser com super-compurador.
+3 - Sim, um celular pode ser um cliente.
+4 - Um servidor pode ser um cliente. Há muitas ocasiões onde o servidor deve buscar informações em outros lugares para dar a response. 
+5 - O caminho seria: Paciente > agente (cliente) > servidor calendario > calendario com a consulta > resposta > agente > paciente.
