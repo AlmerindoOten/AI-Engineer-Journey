@@ -1,0 +1,16 @@
+Aula 1
+
+Exercício 1 
+1. O que é um Servidor?
+2. O que é um DNS?
+3. O que é um IP?
+4. O que é uma Request?
+5. O que é uma Response?
+6. Explique, em ordem, o caminho desde digitar google.com até a página aparecer na tela.
+
+1. Servidor é um conjunto de hardware responsavel por processar requests e devolve-las.
+2. DNS é responsavel por traduzir nomes de dominios para endereços IP.
+3. IP é um enderenço, mas não de paginas, e sim de maquinas. Todo dispositivo conectado a net tem um IP.
+4. Request é um pedido, uma requisição que o usuario faz ao servudir. Um clique gera uma request.
+5. Response é a resposta que o servidor da a request.
+6. Digito > dns descobre o ip > computador gera uma request > servidor recebe ela > servidor processa> gera uma response > recebo uma ação.
