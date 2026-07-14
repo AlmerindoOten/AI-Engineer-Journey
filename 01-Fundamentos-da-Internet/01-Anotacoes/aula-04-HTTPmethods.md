@@ -1,0 +1,7 @@
+- O HTTP Method representa a intenção da Request.
+- Servem para dar especificidade a request.
+- Get: consultar
+- Post: criar
+- Put: substituir algo inteiramente
+- Patch: substitui parte de algo
+- Delete: Remover
