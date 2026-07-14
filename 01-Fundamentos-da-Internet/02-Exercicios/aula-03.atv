@@ -1,0 +1,18 @@
+1-Explique, com suas palavras:
+Por que HTTP pode ser considerado um “contrato” entre Cliente e Servidor?
+
+2-Imagine que não existisse um formato padrão para uma Request. Que problemas isso causaria?
+3-Você acha que um servidor poderia entender uma mensagem completamente bagunçada enviada pelo Cliente? Explique.
+
+4-Imagine que você está desenvolvendo um Agente IA.
+Ele precisa consultar:
+* Google Calendar
+* API do Clima
+* Banco de Dados
+* WhatsApp
+O que todos esses sistemas têm em comum que permite ao seu agente conversar com eles? Explique com suas palavras.
+
+1- HTTP pode ser considerado um contrato pois ele determina regras e a forma/formato que os sistemas devem seguir para conseguir se comunicar.
+2- Falta de padronização causaria a não possibilidade de interpretação de informações pelo servidor, impedindo o processo e response de infos.
+3- Acredito que não. O servidor precisar saber onde cada informação deve ser processada para poder subir response corretamente.
+4- Todos eles possuem padronização de formato de comunicação, ou seja, HTTP
