@@ -1,0 +1,71 @@
+1- O que é um HTTP Method?
+
+HTTP Method é o método que informa ao servidor qual ação o cliente deseja realizar sobre um recurso.
+
+2- Por que apenas uma Request não é suficiente?
+
+Porque ela não informa qual ação deve ser executada. O Method existe para indicar essa intenção.
+
+3- Sistema da faculdade
+
+• Ver disciplinas → GET (consultar)
+• Criar aluno → POST (criar)
+• Ver notas → GET (consultar)
+• Criar matrícula → POST (criar)
+
+Resumo:
+GET = consultar
+POST = criar
+
+4- Um desenvolvedor usa POST apenas para listar usuários. É uma boa prática?
+
+Não. Apesar de funcionar, quebra o contrato e a previsibilidade da API.
+
+5- Um aluno alterou apenas o telefone, mas precisou preencher todo o formulário novamente. Qual Method?
+
+PUT, pois substitui todo o recurso.
+
+6- Um cadastro completo é enviado novamente ao servidor. Qual Method?
+
+PUT, pois substitui completamente o recurso.
+
+7- Um desenvolvedor usa POST para atualizar um usuário. É uma boa prática?
+
+Não. POST foi criado para criar recursos, e utilizá-lo para atualizar quebra o padrão da API.
+
+8- Um cliente alterou apenas o telefone. Qual Method?
+
+PATCH, pois apenas parte do recurso será atualizada.
+
+9- Um funcionário alterou cidade, telefone e e-mail. Qual Method?
+
+PATCH, pois apenas alguns campos foram modificados.
+
+10- Diferença entre PUT e PATCH
+
+PUT → substitui todo o recurso.
+PATCH → altera apenas parte do recurso.
+
+11- Empresa com 10 milhões de usuários alterando apenas o telefone.
+
+PATCH, pois envia apenas os dados necessários, reduzindo tráfego e processamento.
+
+12- Livro cadastrado duas vezes.
+
+DELETE, para remover o registro duplicado.
+
+13- Cliente deseja excluir sua conta.
+
+DELETE, pois o recurso será removido.
+
+14- Complete a tabela
+
+Consultar produtos → GET
+Criar pedido → POST
+Atualizar telefone → PATCH
+Atualizar cadastro → PUT
+Excluir consulta → DELETE
+
+15- Um desenvolvedor usa GET para excluir uma conta. É uma boa prática?
+
+Não. GET deve apenas consultar. Utilizá-lo para excluir recursos quebra a previsibilidade da API e pode causar exclusões acidentais.
