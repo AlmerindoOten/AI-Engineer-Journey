@@ -1,0 +1,74 @@
+1- O que é uma HTTP Request?
+
+É um pedido enviado pelo cliente para que o servidor ou a API execute alguma ação.
+
+2- Em um aplicativo de banco, quem envia a Request para consultar o saldo?
+
+O aplicativo, pois as informações estão armazenadas no servidor/banco de dados e precisam ser solicitadas.
+
+3- Identifique as partes da Request:
+
+GET https://api.loja.com/produtos?categoria=notebooks
+
+Method: GET
+URL: https://api.loja.com
+Path: /produtos
+Query Parameter: categoria=notebooks
+
+4- Para que serve um Query Parameter?
+
+Serve para filtrar ou refinar uma consulta.
+
+5- Para listar apenas filmes de 2024, qual Request faz mais sentido?
+
+GET /filmes?ano=2024
+
+Pois o Query Parameter filtra apenas os filmes desejados.
+
+6- Onde devem ser enviados Nome, E-mail e Senha ao criar um usuário?
+
+No Body, pois são os dados da operação e não informações da comunicação.
+
+7- Onde deve ser informado que os dados estão em JSON?
+
+No Header, utilizando Content-Type: application/json.
+
+8- Complete:
+
+Body → contém os dados da operação.
+
+Header → contém informações sobre a comunicação.
+
+9- É uma boa prática colocar a senha na URL?
+
+Não. A senha ficaria exposta, quebraria a organização da Request e reduziria a segurança da aplicação.
+
+10- Monte uma Request para cadastrar um livro.
+
+POST https://api.biblioteca.com/livros
+
+Header:
+Content-Type: application/json
+
+Body:
+{
+    "titulo": "Clean Code",
+    "autor": "Robert Martin",
+    "ano": 2008
+}
+
+## Erros que cometi
+- Coloquei o ano no Query Parameter ao criar um livro.
+Aprendizado: Query Parameters servem principalmente para filtros; dados de criação pertencem ao Body.
+
+11- Uma Request para criar um livro possui apenas o título. O que a API deveria fazer?
+
+Retornar um erro informando que faltam campos obrigatórios, pois a API deve validar os dados antes de criar o recurso.
+
+12- Em um cadastro de usuário, quais campos deveriam ser obrigatórios?
+
+Nome, E-mail e Senha.
+
+Nome → identificação.
+E-mail → login e comunicação.
+Senha → autenticação e segurança.
