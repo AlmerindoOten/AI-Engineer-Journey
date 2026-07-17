@@ -1,0 +1,27 @@
+- Response entrega o que a request solicita.
+- Cliente > request > server/api > response > cliente
+- Na request são informados alguns dados e na response são respondidos todos os dados relacionados a aquilo.
+- Uma boa Response permite que o cliente entenda claramente o que aconteceu com sua Request.
+
+CLIENTE
+   │
+   │ REQUEST
+   │
+   │ Method
+   │ Path
+   │ Query
+   │ Headers
+   │ Body
+   ▼
+SERVIDOR
+   │
+   │ Processa
+   │
+   ▼
+   │ RESPONSE
+   │
+   │ Status Code
+   │ Headers
+   │ Body
+   ▼
+CLIENTE
