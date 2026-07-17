@@ -1,0 +1,41 @@
+1- O que é uma HTTP Response?
+
+É a resposta enviada pelo servidor ao cliente após processar uma HTTP Request.
+
+2- Em uma consulta de produtos, quem envia e quem recebe a Response?
+
+O servidor envia a Response e o aplicativo (cliente) recebe.
+
+3- Identifique as partes da Response:
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "produto": "MacBook",
+    "preco": 7000
+}
+
+Status Code: 200 OK
+Header: Content-Type: application/json
+Body: dados do produto (MacBook e preço).
+
+4- Qual é a função do Status Code?
+
+Mostrar o resultado do processamento da Request, indicando se ocorreu sucesso ou algum tipo de erro.
+
+5- Onde são enviados os dados de um produto na Response?
+
+No Body, pois é nele que ficam os dados devolvidos pelo servidor ao cliente.
+
+6- O cliente solicita um produto que não existe. O que o servidor deve fazer?
+
+Enviar uma Response informando que o produto não foi encontrado. O servidor não deve inventar informações.
+
+7- Um usuário tenta criar uma conta, mas não envia a senha. O problema está no cliente ou no servidor?
+
+Nos dados enviados pelo cliente, pois a Request não contém todas as informações obrigatórias.
+
+8- Um Agente de IA consulta um produto que não existe. O que ele deve fazer?
+
+Informar ao usuário que não encontrou o produto ou que ele não existe, em vez de inventar informações.
