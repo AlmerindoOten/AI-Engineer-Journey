@@ -1,0 +1,55 @@
+- Status code é o resultado da operação 
+- Estrutura: 
+CLIENTE
+   │
+   │ GET /produtos/50
+   ▼
+SERVIDOR
+   │
+   │ Processa...
+   ▼
+RESPONSE
+   │
+   ├── 200 → Deu certo
+   │
+   ├── 404 → Não encontrei
+   │
+   └── 500 → Tive um problema interno
+   ▼
+CLIENTE
+
+-Tipos de status code:
+1xx → Informação
+2xx → Sucesso 
+3xx → Redirecionamento 
+4xx → Problema relacionado ao cliente/Request 
+5xx → Problema relacionado ao servidor 
+
+-2xx
+200 OK: Normalmente sucesso em consultas (GET)
+201 created:  Criado com sucesso (POST)
+204 No Content: normalmente usado em exclusão de algo (DELETE)
+
+-4xx
+400: request invalida.
+401: falha de autenticação.  "Quem é você?"
+                              Não autenticado.
+403: sem autorização. "Sei quem você é, mas você não pode."
+                       Sem permissão.
+404: recurso não encontrado  "Não encontrei."
+                             Recurso não encontrado.
+
+-5xx
+500 → "Sua Request chegou, mas eu tive um problema interno."
+ tentar novamente, mas não infinitamente.
+
+
+RESUMO 
+200 → Continuar usando o resultado.
+201 → Reconhecer que o recurso foi criado.
+204 → Operação concluída, sem conteúdo para processar.
+400 → Revisar/corrigir a Request.
+401 → Resolver a autenticação.
+403 → Reconhecer falta de permissão.
+404 → Recurso não encontrado.
+500 → Reconhecer falha interna e, dependendo do contexto, considerar retry.
