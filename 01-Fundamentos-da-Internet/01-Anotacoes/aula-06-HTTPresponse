@@ -25,3 +25,9 @@ SERVIDOR
    │ Body
    ▼
 CLIENTE
+
+Status Code → informa o resultado do processamento.
+
+Headers → informações sobre a Response.
+
+Body → dados devolvidos pelo servidor.
