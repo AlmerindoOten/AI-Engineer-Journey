@@ -1,0 +1,46 @@
+1. O que é um HTTP Header?
+É uma informação adicional sobre a comunicação entre cliente e servidor.
+
+2. Qual a diferença entre Header e Body?
+Header contém informações sobre a comunicação. Body contém os dados/conteúdo da mensagem.
+
+3. O que é Content-Type?
+Informa o formato dos dados enviados no Body.
+
+4. O que é Accept?
+Informa qual formato o cliente deseja receber na Response.
+
+5. O que é Authorization?
+É usado para enviar uma credencial/token para autenticar o cliente.
+
+6. O que é Authentication?
+É verificar quem é o usuário.
+
+7. O que é Authorization?
+É verificar o que o usuário tem permissão para fazer.
+
+8. O que é um Token?
+É uma credencial usada pelo cliente para se autenticar perante a API.
+
+9. Qual a diferença entre 401 e 403?
+401 → falha na autenticação.
+403 → usuário autenticado, mas sem permissão.
+
+10. Por que não colocar tokens na URL?
+Porque a URL pode ficar registrada em históricos, logs e outros locais, expondo a credencial.
+
+11. Como funciona uma Request autenticada?
+O cliente envia o token no Header Authorization. O servidor valida o token e verifica as permissões antes de processar a Request.
+
+12. O que o agente faz ao receber uma Response?
+Interpreta os dados recebidos e utiliza essas informações para responder ao usuário.
+
+13. Como o agente deve reagir aos principais Status Codes?
+200 → processa os dados e responde ao usuário.
+401 → informa problema de autenticação/credencial.
+403 → informa falta de permissão.
+404 → informa que o recurso não foi encontrado.
+500 → informa erro interno e pode tentar novamente de forma controlada.
+
+14. Qual é o fluxo básico de um Agente com uma API?
+Usuário → Agente → Request → API → Response → Agente interpreta → Resposta ao usuário.
