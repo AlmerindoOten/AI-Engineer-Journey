@@ -22,29 +22,6 @@ usuario
       └── estado
 Para consultar cidade: usuario.endereco.cidade
 
-EX: 
-{
-    "empresa": {
-        "nome": "TechCorp",
-        "endereco": {
-            "cidade": "São Paulo",
-            "estado": "SP"
-        },
-        "funcionarios": [
-            {
-                "nome": "João",
-                "cargo": "Dev"
-            },
-            {
-                "nome": "Maria",
-                "cargo": "Designer"
-            }
-        ]
-    }
-}
-para saber quem eh a desingner da empresa:m
-empresa.funcionarios[1].cargo
-→ Designer
 
 Vazios: 
 []    → lista vazia
