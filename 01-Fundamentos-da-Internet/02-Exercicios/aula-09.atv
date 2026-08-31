@@ -1,0 +1,68 @@
+Aula 09 — JSON
+1. O que é JSON?
+JSON é uma forma padronizada de representar e transportar dados.
+
+2. Por que JSON é tão utilizado em APIs?
+Por ser de fácil interpretação e comum a várias linguagens.
+
+3. O que são chave e valor?
+Chave é o nome do campo e valor é a informação armazenada nele.
+
+4. Qual a diferença entre 19 e "19"?
+19 é um número inteiro. "19" é uma String.
+
+5. Identifique os tipos:
+{
+    "produto": "MacBook Air",
+    "preco": 7000,
+    "disponivel": true,
+    "categorias": [
+        "notebook",
+        "apple"
+    ]
+}
+- produto → String
+- preco → Number
+- disponivel → Boolean
+- categorias → Array
+
+6. O que é um Array?
+Uma lista de elementos que pode ser acessada por posições.
+
+7. O que significa produtos[0]?
+É o primeiro elemento do Array produtos.
+
+8. Como acessar um campo de um objeto dentro de um Array?
+Usando o índice e depois o campo.
+Exemplo:
+produtos[0].nome
+
+9. Como encontrar usuários ativos em um Array?
+Verificando o campo ativo de cada usuário e selecionando os que possuem valor true.
+
+10. O que significa null?
+Ausência de valor definido.
+
+11. Qual a diferença entre [], {} e null?
+- [] → Array vazio
+- {} → Objeto vazio
+- null → Sem valor definido
+
+12. Qual a diferença entre "" e null?
+"" → texto vazio.
+null → ausência de valor.
+
+13. Como um agente utiliza um JSON recebido de uma API?
+O agente interpreta os dados, extrai as informações necessárias e usa essas informações para responder ou tomar uma decisão.
+
+14. Desafio
+Se a API retornar:
+{
+    "produtos": []
+}
+O agente deve informar que a lista de produtos está vazia.
+Se retornar:
+{
+    "produtos": null
+}
+O agente deve informar que não encontrou informações sobre a lista de produtos.
