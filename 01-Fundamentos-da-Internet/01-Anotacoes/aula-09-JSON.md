@@ -1,3 +1,5 @@
+JSON
+
 Json: forma organizada de armazenar informações.
 Comum a varias linguagens. 
 Facil analise e interpretação por apis.
