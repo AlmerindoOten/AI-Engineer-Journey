@@ -23,3 +23,12 @@ Endpoint = endereço + método que você usa para acessar determinada operação
   → pedido 8 do usuário 15.
 
 - REST permite uma estrutura previsível para que clientes e agentes entendam a API.
+- REST é um estilo arquitetural/conjunto de princípios para organizar APIs.
+- URL identifica o recurso.
+- Método HTTP define a ação.
+- Exemplo:
+  GET /produtos → listar produtos
+  GET /produtos/10 → consultar produto 10
+  POST /produtos → criar produto
+  PATCH /produtos/10 → alterar produto 10
+  DELETE /produtos/10 → excluir produto 10
