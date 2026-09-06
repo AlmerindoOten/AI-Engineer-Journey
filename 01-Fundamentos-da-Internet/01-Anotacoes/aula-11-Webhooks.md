@@ -19,4 +19,5 @@ Exemplos de eventos:
 - pagamento_cancelado
 - pedido_criado
 - mensagem_recebida
+- dbjs 
 
