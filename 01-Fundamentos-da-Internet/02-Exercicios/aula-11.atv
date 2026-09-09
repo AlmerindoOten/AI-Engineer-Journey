@@ -1,0 +1,104 @@
+Questões
+1. Uma loja possui o endpoint POST /webhook/pagamento. Qual é a função desse endpoint?
+2. No seguinte Webhook:
+{
+  "evento": "pagamento_aprovado",
+  "pedido_id": 25,
+  "valor": 200
+}
+Identifique:
+- a) Evento
+- b) ID do pedido
+- c) Valor
+3. Um sistema recebe:
+{
+  "evento": "pagamento_recusado",
+  "pedido_id": 30
+}
+O que a aplicação deve fazer com essa informação?
+4. Um Webhook recebe:
+{
+  "evento": "pedido_cancelado",
+  "pedido_id": 15
+}
+Qual foi o evento ocorrido?
+5. Explique a diferença entre:
+GET /pedidos/15
+e
+POST /webhook/pedido
+6. Um sistema recebe:
+{
+  "evento": "pedido_enviado",
+  "pedido_id": 42,
+  "transportadora": "Correios"
+}
+Descreva o fluxo desde o momento em que o pedido é enviado até a aplicação processar o Webhook.
+Respostas
+1. Receber notificações relacionadas a eventos de pagamento.
+2.
+- a) pagamento_aprovado
+- b) 25
+- c) 200
+3. Identificar que o pagamento foi recusado e atualizar/processar o pedido de acordo com esse evento.
+4. O pedido 15 foi cancelado.
+5.
+- GET /pedidos/15 → solicita informações sobre o pedido 15.
+- POST /webhook/pedido → recebe uma notificação enviada por outro sistema quando ocorre determinado evento relacionado a pedidos.
+6.
+Pedido é enviado
+        ↓
+Sistema identifica o evento
+        ↓
+Envia POST para o Webhook
+        ↓
+Aplicação recebe o JSON
+        ↓
+Identifica "pedido_enviado"
+        ↓
+Lê o pedido_id = 42
+        ↓
+Atualiza/processa o pedido 42
+📝 Fase 3 — Segurança e processamento
+Questões
+1. Por que um Webhook precisa de algum mecanismo de autenticação ou assinatura?
+2. Uma aplicação recebe:
+POST /webhook/pagamento
+X-Signature: abc123
+O que ela deve fazer antes de processar o evento?
+3. A assinatura recebida é inválida. O que a aplicação deve fazer?
+4. Um Webhook válido contém:
+{
+  "evento": "pagamento_aprovado",
+  "pedido_id": 50
+}
+Quais são as duas principais informações que a aplicação precisa identificar?
+5. Depois de receber e processar corretamente um Webhook, qual status HTTP pode ser retornado para indicar sucesso?
+6. Monte o fluxo completo de:
+Cliente paga um pedido → sistema de pagamento envia um Webhook → aplicação recebe → valida → interpreta o JSON → atualiza o pedido.
+
+Respostas
+1. Para verificar se o Webhook realmente veio de uma fonte confiável e impedir requisições falsas, golpes e alterações indevidas no sistema.
+2. Validar a assinatura/credencial recebida antes de processar o evento.
+3. Rejeitar o Webhook e não processar o evento.
+4.
+- O evento ocorrido → pagamento_aprovado
+- O recurso afetado → pedido_id = 50
+5. 200 OK
+6.
+Cliente realiza o pagamento
+        ↓
+Pagamento é aprovado
+        ↓
+Sistema de pagamento identifica o evento
+        ↓
+Sistema envia POST para o Webhook
+        ↓
+Aplicação recebe o Webhook
+        ↓
+Valida a assinatura/credencial
+        ↓
+Lê e interpreta o JSON
+        ↓
+Identifica o evento e o pedido
+        ↓
+Atualiza o pedido
