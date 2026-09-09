@@ -52,3 +52,45 @@ Lê pedido_id = 42
       ↓
 Atualiza/processa o pedido 42. 
 -----------------------------------------------------------------------------------------------
+- Webhooks precisam ser protegidos contra requisições falsas.
+- A aplicação pode verificar uma assinatura ou credencial.
+- Se a autenticação for válida, o evento pode ser processado.
+- Se for inválida, a requisição deve ser rejeitada.
+
+Fluxo:
+
+Webhook recebido
+      ↓
+Validar assinatura/credencial
+      ↓
+Ler evento
+      ↓
+Identificar recurso
+      ↓
+Executar ação
+      ↓
+Responder com status HTTP
+
+Exemplo:
+
+POST /webhook/pagamento
+
+{
+  "evento": "pagamento_aprovado",
+  "pedido_id": 42
+}
+
+→ Validar
+→ Identificar evento
+→ Identificar pedido
+→ Atualizar pedido
+→ Responder 200 OK
+
+
+
+
+
+
+
+
+
