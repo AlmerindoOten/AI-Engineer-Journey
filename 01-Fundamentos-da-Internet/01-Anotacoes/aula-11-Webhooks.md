@@ -38,3 +38,17 @@ Exemplo:
 - Um mesmo endpoint pode receber diferentes eventos.
 - Webhook não é uma API inteira; é um mecanismo de comunicação baseado em eventos.
 
+Pedido é enviado
+      ↓
+Sistema identifica o evento
+      ↓
+Sistema envia POST para o Webhook
+      ↓
+Sua aplicação recebe o JSON
+      ↓
+Identifica "pedido_enviado"
+      ↓
+Lê pedido_id = 42
+      ↓
+Atualiza/processa o pedido 42. 
+-----------------------------------------------------------------------------------------------
