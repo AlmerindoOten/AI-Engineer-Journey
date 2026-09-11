@@ -1,0 +1,26 @@
+Aula 13 — OAuth 
+
+- OAuth é um mecanismo/protocolo de autorização.
+- Permite que uma aplicação obtenha acesso autorizado a recursos de um usuário.
+- A aplicação não precisa receber a senha do usuário.
+- O usuário escolhe quais permissões deseja conceder.
+- OAuth pode fornecer tokens utilizados para acessar APIs protegidas.
+
+Exemplo:
+
+Usuário
+   ↓
+Aplicação/Agente
+   ↓
+Tela de autorização
+   ↓
+Usuário permite acesso
+   ↓
+Tokens
+   ↓
+Aplicação/Agente
+   ↓
+API protegida
+
+OAuth → processo de autorização.
+Token → credencial utilizada para acessar o recurso.
