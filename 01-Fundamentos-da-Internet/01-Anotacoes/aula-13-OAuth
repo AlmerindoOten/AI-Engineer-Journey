@@ -122,3 +122,10 @@ JSON
   ↓
 Agente interpreta
 
+---------------------------------------------------------------------
+
+Scope = exatamente o que pode fazer.
+Access Token = credencial que permite acessar o que foi autorizado.
+Resource Server = onde estão os recursos protegidos.
+Token → Request → Resource Server → validação → Response
+
