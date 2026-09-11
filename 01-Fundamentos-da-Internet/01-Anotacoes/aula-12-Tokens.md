@@ -30,3 +30,33 @@ Token inválido/ausente pode resultar em:
 401 Unauthorized
 
 -----------------------------------------------------------------------------------
+
+- Tokens podem possuir tempo de validade.
+- Token expirado normalmente não pode mais ser utilizado.
+- Token expirado pode resultar em 401 Unauthorized.
+
+Access Token:
+- Usado para acessar recursos protegidos.
+- Normalmente possui duração menor.
+
+Refresh Token:
+- Utilizado para obter um novo Access Token.
+- Pode possuir duração maior.
+
+Fluxo:
+
+Login
+  ↓
+Access Token + Refresh Token
+  ↓
+Access Token utilizado
+  ↓
+Access Token expira
+  ↓
+Refresh Token
+  ↓
+Novo Access Token
+
+-----------------------------------------------------------------------------------
+
+
