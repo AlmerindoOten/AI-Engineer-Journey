@@ -59,4 +59,22 @@ Novo Access Token
 
 -----------------------------------------------------------------------------------
 
+- O Access Token normalmente é enviado no Header Authorization.
+- Exemplo:
+  Authorization: Bearer ACCESS_TOKEN
+
+- Token inválido/ausente pode resultar em 401 Unauthorized.
+- Token válido, mas sem permissão suficiente, pode resultar em 403 Forbidden.
+
+Segurança:
+- Não publicar tokens no código ou GitHub.
+- Informações sensíveis podem ser armazenadas em variáveis de ambiente.
+
+Autenticação:
+→ Quem é você?
+
+Autorização:
+→ O que você pode fazer?
+
+Tokens podem possuir diferentes permissões/scopes.
 
