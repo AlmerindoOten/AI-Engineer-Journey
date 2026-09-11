@@ -57,5 +57,15 @@ Resource Server
   ↓
 Dados autorizados
 
+SCOPES
+Scopes são as permissões específicas que a aplicação solicita ou recebe.
+Exemplo:
+scope = calendar.read
+→ pode ler o calendário.
+scope = calendar.write
+→ pode modificar/criar eventos.
+Então pense:
+Scope = "qual acesso foi concedido?"
+
 ---------------------------------------------------------------------
 
