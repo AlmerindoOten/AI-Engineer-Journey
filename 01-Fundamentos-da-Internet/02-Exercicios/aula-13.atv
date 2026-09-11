@@ -1,0 +1,124 @@
+Aula 13 — OAuth
+Fase 1 — Conceito de OAuth
+1. O que é OAuth?
+Resposta:
+OAuth é um mecanismo/protocolo de autorização que permite que uma aplicação acesse determinados recursos do usuário sem precisar receber a senha dele.
+2. Por que OAuth evita que a aplicação receba a senha do usuário?
+Resposta:
+Porque o usuário autentica e autoriza o acesso diretamente no serviço responsável pela autorização. A aplicação recebe um token, e não a senha.
+3. Quem decide quais recursos a aplicação poderá acessar?
+Resposta:
+O usuário, ao conceder ou negar as permissões solicitadas.
+4. Qual é a relação entre OAuth e Token?
+Resposta:
+OAuth é o mecanismo/processo de autorização. O token é a credencial que a aplicação utiliza posteriormente para acessar os recursos autorizados.
+5. Uma aplicação quer acessar o Google Calendar de um usuário. Como OAuth pode ajudar?
+Resposta:
+A aplicação inicia o processo OAuth, o usuário autoriza o acesso e, após a autorização, a aplicação recebe um token que pode ser utilizado para acessar o calendário permitido.
+6. OAuth e Token são a mesma coisa?
+Resposta:
+Não.
+- OAuth: processo/mecanismo de autorização.
+- Token: credencial usada para acessar os recursos autorizados.
+7. Quem inicia o processo OAuth em uma aplicação de IA?
+Resposta:
+O agente/aplicação inicia o processo para solicitar a autorização necessária. O usuário então decide se concede ou não essa autorização.
+Fase 2 — Como funciona o OAuth
+1. Quais são os principais componentes envolvidos em um fluxo OAuth?
+Resposta:  
+Usuário → Aplicação/Agente → Authorization Server → Resource Server
+O usuário autoriza a aplicação, o Authorization Server participa da autorização e emissão do token, e o Resource Server fornece os recursos protegidos.
+2. Qual é a função do Authorization Server?
+Resposta:
+É responsável pelo processo de autorização e pela emissão dos tokens necessários para acessar recursos protegidos.
+3. Qual é a função do Resource Server?
+Resposta:
+É o servidor que possui ou fornece os recursos protegidos e verifica se o token apresentado permite o acesso solicitado.
+4. Por que a aplicação não precisa receber a senha do usuário?
+Resposta:
+Porque o usuário realiza a autenticação/autorização no serviço responsável por isso. A aplicação recebe o token necessário para acessar os recursos autorizados.
+5. O que são permissões no OAuth?
+Resposta:
+São as ações ou recursos que a aplicação está autorizada a acessar.
+6. O que são scopes?
+Resposta:
+Scopes são uma forma de especificar quais permissões estão sendo solicitadas ou concedidas à aplicação.
+Exemplo:
+calendar.read
+
+Significa permissão para ler informações do calendário.
+7. Para que serve um Access Token?
+Resposta:
+É utilizado pela aplicação para acessar os recursos protegidos que foram autorizados pelo usuário.
+8. Descreva o fluxo básico do OAuth.
+Resposta:  
+Usuário
+   ↓
+Aplicação/Agente
+   ↓
+Authorization Server
+   ↓
+Usuário autoriza
+   ↓
+Access Token
+   ↓
+Resource Server
+   ↓
+Recurso protegido
+   ↓
+Resposta
+
+Fase 3 — OAuth na prática e segurança
+1. Por que uma aplicação não deve receber automaticamente acesso a todos os recursos do usuário após uma autorização OAuth?
+Resposta:
+Porque OAuth deve conceder somente os recursos e permissões necessários para aquela aplicação. O usuário deve controlar o que pode ser acessado.
+2. O que são scopes e qual é sua função no OAuth?
+Resposta:
+Scopes especificam quais recursos ou ações a aplicação pode acessar.
+Exemplo:
+calendar.read
+
+permite ler o calendário, mas não necessariamente criar ou excluir eventos.
+3. Uma aplicação recebeu a permissão calendar.read. O que ela está autorizada a fazer?
+Resposta:
+Ela está autorizada a ler/consultar informações do calendário.
+Não significa automaticamente que pode criar, editar ou excluir eventos.
+4. Uma aplicação possui um Access Token válido, mas o usuário revogou o acesso concedido a ela. O que deve acontecer?
+Resposta:
+O acesso da aplicação deve ser interrompido/revogado. O token não deve mais permitir aquele acesso.
+5. Por que um Access Token deve ser tratado como informação sensível?
+Resposta:
+Porque quem obtiver um token válido pode utilizá-lo para acessar os recursos protegidos que aquele token permite, enquanto ele estiver válido.
+6. Cite duas boas práticas para proteger tokens.
+Resposta:  
+- Não colocar tokens diretamente no código público/GitHub.
+- Utilizar armazenamento seguro para credenciais.
+Outras boas práticas incluem usar expiração e limitar os scopes ao mínimo necessário.
+7. Desafio — Explique o fluxo completo de um agente de IA acessando um calendário.
+Resposta:  
+Usuário
+   ↓
+Agente de IA
+   ↓
+OAuth
+   ↓
+Usuário autoriza somente calendar.read
+   ↓
+Authorization Server
+   ↓
+Access Token
+   ↓
+Agente envia Request
+   ↓
+Resource Server
+   ↓
+Valida Token + Permissões
+   ↓
+Response
+   ↓
+Agente interpreta os dados
+   ↓
+Usuário
+O token é enviado no request, normalmente através do header:
+Authorization: Bearer ACCESS_TOKEN
+Se o agente tentar realizar uma ação que não está autorizada pelo scope, o acesso deve ser negado, normalmente com 403 Forbidden.
