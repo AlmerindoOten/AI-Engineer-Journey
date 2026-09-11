@@ -1,5 +1,5 @@
-aula 12
+aula 13
 Tempo estudado: 45 minutos 
-Hoje aprendi: TOKENS
-Dificuldades: 3/10 
-Nota da aula: 8/10
+Hoje aprendi: OAuth
+Dificuldades: 5/10 
+Nota da aula: 6,5/10
