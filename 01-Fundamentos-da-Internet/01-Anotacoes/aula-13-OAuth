@@ -81,5 +81,44 @@ Resource Server → "Aqui estão os dados que você tem permissão para acessar.
 
 ---------------------------------------------------------------------
 
+tokens precisam ser tratados como informações sensíveis.
+Se alguém obtiver um Access Token válido, pode tentar utilizá-lo enquanto ele estiver válido e dentro das permissões concedidas.
+Por isso:
+- não coloque tokens no código público;
+- não compartilhe tokens;
+- utilize armazenamento seguro;
+- utilize expiração quando aplicável;
+- solicite apenas as permissões necessárias.
 
+- OAuth não fornece acesso ilimitado.
+- As permissões concedidas podem ser definidas por scopes.
+- O Access Token é utilizado para acessar recursos autorizados.
+- Tokens devem ser tratados como informações sensíveis.
+- Tokens não devem ser publicados no código.
+- O usuário pode revogar o acesso concedido a uma aplicação.
+- O Resource Server verifica o token e as permissões antes de fornecer os recursos.
+
+Fluxo geral:
+
+Usuário
+  ↓
+Agente/Aplicação
+  ↓
+OAuth
+  ↓
+Usuário autoriza
+  ↓
+Access Token
+  ↓
+Request HTTP
+  ↓
+API REST / Resource Server
+  ↓
+Validação do Token
+  ↓
+Response
+  ↓
+JSON
+  ↓
+Agente interpreta
 
