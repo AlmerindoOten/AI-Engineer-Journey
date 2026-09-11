@@ -24,3 +24,35 @@ API protegida
 
 OAuth → processo de autorização.
 Token → credencial utilizada para acessar o recurso.
+
+------------------------------------------------------------------------
+
+- OAuth possui um processo de autorização entre usuário e aplicação.
+- Authorization Server:
+  → responsável pelo processo de autorização e emissão de tokens.
+
+- Resource Server:
+  → possui os recursos/dados protegidos.
+
+- O usuário não precisa fornecer sua senha diretamente à aplicação.
+- O usuário autentica e autoriza o acesso no serviço de autorização.
+- A aplicação recebe credenciais/tokens para acessar os recursos autorizados.
+- OAuth pode utilizar scopes para definir quais permissões a aplicação terá.
+
+Fluxo:
+
+Usuário
+  ↓
+Aplicação solicita autorização
+  ↓
+Authorization Server
+  ↓
+Usuário autentica e autoriza
+  ↓
+Token
+  ↓
+Aplicação
+  ↓
+Resource Server
+  ↓
+Dados autorizados
