@@ -1,0 +1,98 @@
+1. Por que um Access Token pode possuir uma data de expiração?
+2. O que normalmente acontece quando uma API recebe um Access Token expirado?
+3. Qual é a função de um Access Token?
+4. Qual é a função de um Refresh Token?
+5. Qual é a principal diferença entre Access Token e Refresh Token?
+6. Um usuário fez login e recebeu um Access Token e um Refresh Token. O Access Token expirou. O que acontece agora?
+7. Explique o fluxo:
+Login
+  ↓
+Access Token + Refresh Token
+  ↓
+Agente usa Access Token
+  ↓
+Access Token expira
+  ↓
+Refresh Token
+  ↓
+Novo Access Token
+  ↓
+Agente continua acessando a API
+Respostas
+1. Para reduzir o período em que um token comprometido pode ser utilizado.
+2. A API pode retornar 401 Unauthorized. Se existir um Refresh Token, ele pode ser utilizado para obter um novo Access Token.
+3. Acessar recursos protegidos de uma API.
+4. Obter um novo Access Token sem exigir que o usuário faça login novamente.
+5.
+Access Token → acessa recursos protegidos.
+Refresh Token → obtém um novo Access Token.
+6. O Refresh Token pode ser utilizado para obter um novo Access Token.
+7.
+Login
+ ↓
+Access Token + Refresh Token
+ ↓
+Access Token utilizado
+ ↓
+Access Token expira
+ ↓
+Refresh Token utilizado
+ ↓
+Novo Access Token
+ ↓
+Acesso continua
+📝 Fase 3 — Tokens na prática e segurança
+Questões
+1. Por que é perigoso colocar um Access Token diretamente no código e publicar esse código no GitHub?
+2. O que significa:
+Authorization: Bearer ACCESS_TOKEN
+3. Uma API recebe um token inválido. Qual status HTTP ela pode retornar?
+4. Uma API recebe um token válido, mas o usuário não possui permissão para realizar determinada ação. Qual status HTTP pode ser retornado?
+5. Por que podemos utilizar uma variável de ambiente para armazenar um token?
+6. Explique a diferença entre:
+- Autenticação
+- Autorização
+7. Um agente precisa acessar os pedidos privados de um usuário:
+Usuário autoriza o acesso
+        ↓
+Agente recebe credencial
+        ↓
+Agente faz GET /pedidos
+        ↓
+Envia Access Token
+        ↓
+API verifica o Token
+        ↓
+???
+Complete o fluxo explicando o que acontece quando:
+- O token é válido e possui permissão.
+- O token é inválido.
+- O token é válido, mas não possui permissão.
+Respostas
+1. Porque qualquer pessoa que tiver acesso ao código poderá obter o token e, dependendo das permissões, utilizá-lo para acessar informações ou recursos da conta.
+2. O cliente está enviando o Access Token no Header Authorization para se autenticar perante a API.
+3. 401 Unauthorized.
+4. 403 Forbidden.
+5. Para manter o token fora do código-fonte e evitar sua exposição, especialmente quando o código é compartilhado ou publicado.
+6.
+Autenticação → Quem é você?
+
+Autorização → O que você pode fazer?
+7.
+Agente
+  ↓
+GET /pedidos
+Authorization: Bearer TOKEN
+  ↓
+API valida o Token
+  ↓
+Token inválido?
+→ 401 Unauthorized
+
+Token válido
+  ↓
+Verifica permissões
+  ↓
+Tem permissão?
+  SIM → 200 OK + dados
+  NÃO → 403 Forbidden
