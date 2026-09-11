@@ -67,5 +67,19 @@ scope = calendar.write
 Então pense:
 Scope = "qual acesso foi concedido?"
 
+AUTHORIZATION SERVER
+→ autorização
+→ emissão de tokens
+
+RESOURCE SERVER
+→ guarda/fornece os recursos protegidos
+→ verifica o token para permitir acesso
+
+Macete
+Authorization Server → "Você pode entrar?"
+Resource Server → "Aqui estão os dados que você tem permissão para acessar."
+
 ---------------------------------------------------------------------
+
+
 
