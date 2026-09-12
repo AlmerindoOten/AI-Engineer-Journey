@@ -1,0 +1,29 @@
+Projeto Final — Agente de IA + APIs
+A ideia é simular um agente de IA que precisa conversar com uma API externa, usando HTTP, autenticação, OAuth, JSON, REST e Webhooks.
+
+cenário:
+Você está desenvolvendo um agente de IA pessoal capaz de consultar o calendário do usuário e responder perguntas como:
+"Quais compromissos eu tenho amanhã?"
+
+Para fazer isso, o agente precisa conversar com uma API de calendário.
+
+fluxo geral: 
+Usuário
+   ↓
+Agente de IA
+   ↓
+OAuth
+   ↓
+Autorização do usuário
+   ↓
+Access Token
+   ↓
+HTTP Request
+   ↓
+REST API
+   ↓
+JSON
+   ↓
+Agente interpreta
+   ↓
+Resposta para o usuário
