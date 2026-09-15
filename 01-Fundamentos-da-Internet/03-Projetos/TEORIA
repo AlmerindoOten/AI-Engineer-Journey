@@ -1,0 +1,165 @@
+Projeto Final — Agente de IA + API de Calendário
+Atualização — Fases 1, 2 e 3
+Neste projeto estou aplicando os conceitos estudados nas 13 aulas de fundamentos de APIs, construindo a lógica de um agente de IA capaz de consultar uma API de calendário, utilizar autenticação e interpretar os dados retornados.
+Fase 1 — Arquitetura e fluxo
+Objetivo
+Criar um agente de IA capaz de responder perguntas do usuário consultando uma API externa de calendário.
+Fluxo
+Usuário
+   ↓
+Agente de IA
+   ↓
+OAuth
+   ↓
+Usuário autoriza
+   ↓
+Authorization Server
+   ↓
+Access Token
+   ↓
+HTTP Request
+   ↓
+Calendar API / Resource Server
+   ↓
+Response
+   ↓
+JSON
+   ↓
+Agente interpreta
+   ↓
+Resposta ao usuário
+Conceitos aplicados
+- Cliente: agente de IA/aplicação.
+- Servidor: API de calendário.
+- HTTPS: comunicação segura utilizando HTTP.
+- GET: utilizado para consultar eventos.
+- REST: organização dos recursos e endpoints da API.
+- JSON: formato utilizado para transportar os dados.
+Exemplo
+Usuário:
+"Quais compromissos tenho amanhã?"
+
+O agente recebe a pergunta, consulta a API de calendário e, depois de receber os dados, interpreta o JSON e gera uma resposta em linguagem natural.
+Fase 2 — Construção da Request
+Para consultar os eventos, o agente pode fazer:
+GET https://api.calendario.com/calendar/events?date=2026-09-14
+Authorization: Bearer abc123TOKEN
+Estrutura da Request
+Method:           GET
+URL:              https://api.calendario.com/calendar/events?date=2026-09-14
+Path:             /calendar/events
+Query Parameter:  date=2026-09-14
+Header:           Authorization: Bearer abc123TOKEN
+Body:             nenhum
+Conceitos
+Method
+GET
+Utilizado para consultar os eventos.
+Path
+/calendar/events
+Representa o recurso de eventos do calendário.
+Query Parameter
+date=2026-09-14
+Especifica a data que queremos consultar.
+Header
+Authorization: Bearer abc123TOKEN
+Envia o Access Token para autenticar a requisição.
+Body
+Nesse caso não é necessário, pois estamos realizando uma consulta e todas as informações necessárias estão na URL.
+Fase 3 — Response + JSON
+Após enviar a Request, a API pode retornar:
+200 OK
+Content-Type: application/json
+Body:
+{
+  "eventos": [
+    {
+      "id": 1,
+      "titulo": "Reunião com professor",
+      "data": "2026-09-14",
+      "hora": "14:00",
+      "status": "confirmado"
+    },
+    {
+      "id": 2,
+      "titulo": "Academia",
+      "data": "2026-09-14",
+      "hora": "18:00",
+      "status": "confirmado"
+    },
+    {
+      "id": 3,
+      "titulo": "Dentista",
+      "data": "2026-09-14",
+      "hora": "20:00",
+      "status": "cancelado"
+    }
+  ]
+}
+Interpretação do JSON
+Para acessar o título do primeiro evento:
+eventos[0].titulo
+Para acessar o horário do segundo:
+eventos[1].hora
+Para identificar os eventos confirmados, o agente verifica:
+eventos[].status == "confirmado"
+Resultado:
+14:00 — Reunião com professor
+18:00 — Academia
+O terceiro evento está:
+status = "cancelado"
+JSON vazio
+A API também pode retornar:
+{
+  "eventos": []
+}
+com:
+200 OK
+Isso significa que a consulta foi realizada com sucesso, mas não existem eventos para retornar.
+Fluxo aprendido até agora
+┌──────────┐
+│  Usuário │
+└────┬─────┘
+     ↓
+┌──────────────┐
+│  Agente IA   │
+└────┬─────────┘
+     ↓
+┌──────────────┐
+│     OAuth    │
+└────┬─────────┘
+     ↓
+ Access Token
+     ↓
+┌──────────────┐
+│ HTTP Request │
+│     GET      │
+└────┬─────────┘
+     ↓
+┌──────────────┐
+│  Calendar API│
+└────┬─────────┘
+     ↓
+┌──────────────┐
+│ HTTP Response│
+│    200 OK    │
+└────┬─────────┘
+     ↓
+    JSON
+     ↓
+┌──────────────┐
+│  Agente IA   │
+│  interpreta  │
+└────┬─────────┘
+     ↓
+┌──────────────┐
+│   Usuário    │
+└──────────────┘
+Progresso
+- Fase 1 — Arquitetura e fluxo
+- Fase 2 — Requests
+- Fase 3 — Responses + JSON
+- Fase 4 — Autenticação + OAuth
+- Fase 5 — Webhooks
+- Fase 6 — Agente completo
+Projeto Final: 3/6 fases concluídas. 
