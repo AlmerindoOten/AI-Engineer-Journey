@@ -155,11 +155,105 @@ Fluxo aprendido até agora
 ┌──────────────┐
 │   Usuário    │
 └──────────────┘
-Progresso
-- Fase 1 — Arquitetura e fluxo
-- Fase 2 — Requests
-- Fase 3 — Responses + JSON
-- Fase 4 — Autenticação + OAuth
-- Fase 5 — Webhooks
-- Fase 6 — Agente completo
-Projeto Final: 3/6 fases concluídas. 
+
+Fase 4: Autenticação + OAuth
+Nesta fase, foi adicionada a camada de autenticação e autorização ao agente de IA, permitindo que ele acesse recursos protegidos de uma API sem receber diretamente as credenciais do usuário.
+ OAuth
+O OAuth é um mecanismo de autorização que permite que uma aplicação acesse recursos do usuário sem precisar receber sua senha.
+Fluxo básico:
+Usuário
+   ↓
+Agente solicita autorização
+   ↓
+Authorization Server
+   ↓
+Usuário autoriza
+   ↓
+Access Token
+   ↓
+Agente
+   ↓
+API
+Authorization Server
+Responsável pelo processo de autorização e pela emissão do Access Token.
+Authorization Server
+        ↓
+Processa autorização
+        ↓
+Emite Access Token
+Resource Server
+É o servidor que possui ou fornece os recursos protegidos.
+No projeto:
+Resource Server
+      ↓
+API de Calendário
+      ↓
+Eventos do usuário
+Ele recebe o token, verifica sua validade e verifica se as permissões permitem a operação solicitada.
+Scopes
+Scopes definem quais recursos ou ações a aplicação pode acessar.
+Exemplo:
+calendar.read
+Permite consultar informações do calendário.
+Isso não significa automaticamente que a aplicação pode:
+calendar.write
+calendar.delete
+Portanto, o usuário deve conceder somente as permissões necessárias.
+Access Token
+Depois da autorização, o agente recebe um Access Token.
+Exemplo:
+abc123TOKEN
+O token é enviado no Authorization Header:
+Authorization: Bearer abc123TOKEN
+Não deve ser colocado diretamente na URL:
+/calendar/events?token=abc123TOKEN
+401 vs 403
+401 — Unauthorized
+Problema de autenticação.
+"Você não apresentou uma credencial válida."
+403 — Forbidden
+A autenticação é válida, mas não existe permissão suficiente.
+"Eu sei quem você é, mas você não pode fazer isso."
+Exemplo:
+Token válido
+   ↓
+Scope: calendar.read
+   ↓
+Tentativa: excluir evento
+   ↓
+403 Forbidden
+🔄 Fluxo completo da autenticação
+Usuário
+   ↓
+Agente de IA
+   ↓
+OAuth
+   ↓
+Authorization Server
+   ↓
+Usuário autoriza
+   ↓
+Access Token
+   ↓
+Agente envia HTTP Request
+   ↓
+Resource Server
+   ↓
+Valida Token + Scopes
+   ↓
+Response
+   ↓
+Agente interpreta
+   ↓
+Usuário
+Se o usuário revogar o acesso, o agente não deverá continuar acessando aquele recurso.
+Conceitos aprendidos
+- OAuth → mecanismo de autorização.
+- Authorization Server → processa autorização e emite tokens.
+- Resource Server → fornece recursos protegidos e verifica acesso.
+- Access Token → credencial utilizada para acessar recursos autorizados.
+- Scope → define as permissões concedidas.
+- 401 → problema de autenticação.
+- 403 → falta de permissão.
+- Authorization Header → local onde o token é enviado.
+
