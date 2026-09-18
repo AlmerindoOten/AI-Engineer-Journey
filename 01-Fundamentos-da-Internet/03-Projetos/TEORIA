@@ -257,3 +257,11 @@ Conceitos aprendidos
 - 403 → falta de permissão.
 - Authorization Header → local onde o token é enviado.
 
+Progresso do Projeto
+- Fase 1 — Arquitetura e fluxo
+- Fase 2 — Requests
+- Fase 3 — Responses + JSON
+- Fase 4 — Autenticação + OAuth
+- Fase 5 — Webhooks
+- Fase 6 — Agente completo
+4/6 fases concluídas. 🚀
